@@ -7,7 +7,7 @@
 
 // Your Gemini API key (required for AI features)
 // Get a free key at https://aistudio.google.com/apikey
-define('GEMINI_API_KEY', 'AIzaSyDPiKEmSKp480XMpJ4dVeu2U1N8juQQlkk');
+define('GEMINI_API_KEY', '');
 
 // Enable when API key is set. Or set true/false manually.
 define('GEMINI_ENABLED', !empty(trim(GEMINI_API_KEY ?? '')));
