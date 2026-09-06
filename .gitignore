@@ -1,0 +1,19 @@
+# Database
+database/
+
+# Uploaded files
+assets/uploads/
+
+# Environment / secrets
+.env
+.env.*
+
+# Dependencies
+vendor/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log

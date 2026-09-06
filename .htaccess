@@ -1,0 +1,26 @@
+# Enable URL Rewriting
+RewriteEngine On
+
+# Set base directory (adjust if your project is in a subdirectory)
+RewriteBase /hospital-core1-system/
+
+# Handle reset password URLs: reset-password/{token}
+# Rewrite /auth/reset-password/{token} to /auth/reset-password.php (token will be extracted in PHP)
+# Case-insensitive match for hex tokens (a-f or A-F)
+# The QSA flag preserves query string parameters
+RewriteRule ^auth/reset-password/([a-fA-F0-9]{64})(?:/.*)?$ auth/reset-password.php [L,QSA]
+
+# Also handle without /auth prefix for flexibility
+RewriteRule ^reset-password/([a-fA-F0-9]{64})(?:/.*)?$ auth/reset-password.php [L,QSA]
+
+# Prevent direct access to sensitive files
+<FilesMatch "^(config|database|includes)\.php$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# For XAMPP: Ensure mod_rewrite is working
+<IfModule mod_rewrite.c>
+    # Additional rewrite rules can go here
+</IfModule>
+

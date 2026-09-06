@@ -1,0 +1,580 @@
+
+:root {
+    --teal-500: #009688;
+    --teal-600: #00796b;
+    --teal-200: #4db6ac;
+    --blue-gray-600: #607D8B;
+    --nav-border: #e5e7eb;
+    --gray-50: #f8fafc;
+}
+
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--nav-border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    min-height: 64px;
+    height: auto;
+}
+
+.navbar > div {
+    position: relative;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+}
+
+/* Navbar Logo Styles */
+.navbar a.flex img {
+    height: 2.5rem !important; /* 40px - consistent height */
+    width: auto !important;
+    max-width: 180px !important;
+    max-height: 2.5rem !important;
+    object-fit: contain !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transition: transform 0.2s ease;
+}
+
+.navbar a.flex img:hover {
+    transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        min-height: 72px;
+    }
+    
+    .navbar > div {
+        min-height: 72px;
+    }
+    
+    .navbar a.flex img {
+        height: 3rem !important; /* 48px on larger screens */
+        max-height: 3rem !important;
+        max-width: 220px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .navbar {
+        min-height: 56px;
+    }
+    
+    .navbar > div {
+        min-height: 56px;
+    }
+    
+    .navbar a.flex img {
+        height: 2rem !important; /* 32px on mobile */
+        max-height: 2rem !important;
+        max-width: 140px !important;
+    }
+}
+
+.navbar.scrolled {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+}
+
+body {
+    padding-top: 0; /* Remove the fixed padding */
+    margin: 0;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-weight: 500;
+    padding: 1rem;
+    border: 1px solid var(--nav-border);
+    border-radius: 12px;
+    background-color: #ffffff;
+}
+
+@media (min-width: 768px) {
+    .nav-list {
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0;
+        border: none;
+        background: transparent;
+        margin: 0;
+    }
+}
+
+.nav-link {
+    position: relative;
+    display: block;
+    color: var(--blue-gray-600);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--teal-500);
+    border-bottom-color: var(--teal-500);
+    text-decoration: none;
+}
+
+.nav-link--active {
+    color: var(--teal-500);
+    font-weight: 600;
+    border-bottom-color: var(--teal-500);
+}
+
+.nav-cta {
+    margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+    .nav-cta {
+        margin-top: 0;
+        margin-left: 1.5rem;
+    }
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-sm {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+}
+
+.btn-lg {
+    font-size: 1rem;
+    padding: 0.75rem 1.75rem;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.btn-teal {
+    background-color: var(--teal-500);
+    color: #ffffff;
+    box-shadow: 0 10px 20px rgba(0, 150, 136, 0.2);
+}
+
+.btn-teal:hover {
+    background-color: var(--teal-600);
+    transform: translateY(-1px);
+}
+
+.btn-teal:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(77, 182, 172, 0.4);
+}
+
+.bg-teal-custom {
+    background-color: var(--teal-500);
+}
+
+.text-teal-custom {
+    color: var(--teal-500);
+}
+
+.bg-blue-gray-custom {
+    background-color: #546E7A;
+}
+
+.bg-light-blue-gray {
+    background-color: #f0f4f8;
+}
+
+.sidebar-transition {
+    transition: all 0.3s ease-in-out;
+}
+
+.page-enter {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal scrollbar - only appears when scrolling or hovering */
+
+
+.modal-scrollable::-webkit-scrollbar {
+    width: 12px; /* Standard scrollbar width */
+}
+
+.modal-scrollable::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+
+.modal-scrollable::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 6px;
+    border: 2px solid #f1f1f1;
+}
+
+.modal-scrollable::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Global Scrollbar Styles - Light Theme */
+/* Apply to all scrollable elements */
+#toast-container {
+    pointer-events: none;
+}
+
+.toast-notification {
+    pointer-events: auto;
+    border-radius: 0.75rem;
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.2);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.toast-notification:hover {
+    transform: translateY(-2px);
+}
+
+.toast-notification .close-toast {
+    pointer-events: auto;
+}
+
+#toast-container > * + * {
+    margin-top: 0.75rem;
+}
+
+html,
+body,
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 2px;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+    border: 1px solid #f1f5f9;
+    transition: background 0.2s ease;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Dark Theme Scrollbar Styles */
+.dark html,
+.dark body,
+.dark * {
+    scrollbar-color: #475569 #1e293b;
+}
+
+.dark html::-webkit-scrollbar-track,
+.dark body::-webkit-scrollbar-track,
+.dark *::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+.dark html::-webkit-scrollbar-thumb,
+.dark body::-webkit-scrollbar-thumb,
+.dark *::-webkit-scrollbar-thumb {
+    background: #475569;
+    border: 1px solid #1e293b;
+}
+
+.dark html::-webkit-scrollbar-thumb:hover,
+.dark body::-webkit-scrollbar-thumb:hover,
+.dark *::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* Sidebar Specific Scrollbar */
+#sidebar nav {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+#sidebar nav::-webkit-scrollbar {
+    width: 3px;
+}
+
+#sidebar nav::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 2px;
+}
+
+#sidebar nav::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+    border: 0.5px solid #f1f5f9;
+}
+
+#sidebar nav::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.dark #sidebar nav {
+    scrollbar-color: #475569 #1e293b;
+}
+
+.dark #sidebar nav::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+.dark #sidebar nav::-webkit-scrollbar-thumb {
+    background: #475569;
+    border: 0.5px solid #1e293b;
+}
+
+.dark #sidebar nav::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* Main Content Scrollbar - All page containers */
+main,
+.overflow-y-auto,
+.overflow-x-auto,
+.overflow-auto,
+[class*="overflow"] {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+main::-webkit-scrollbar,
+.overflow-y-auto::-webkit-scrollbar,
+.overflow-x-auto::-webkit-scrollbar,
+.overflow-auto::-webkit-scrollbar,
+[class*="overflow"]::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+main::-webkit-scrollbar-track,
+.overflow-y-auto::-webkit-scrollbar-track,
+.overflow-x-auto::-webkit-scrollbar-track,
+.overflow-auto::-webkit-scrollbar-track,
+[class*="overflow"]::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 2px;
+}
+
+main::-webkit-scrollbar-thumb,
+.overflow-y-auto::-webkit-scrollbar-thumb,
+.overflow-x-auto::-webkit-scrollbar-thumb,
+.overflow-auto::-webkit-scrollbar-thumb,
+[class*="overflow"]::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+    border: 1px solid #f1f5f9;
+}
+
+main::-webkit-scrollbar-thumb:hover,
+.overflow-y-auto::-webkit-scrollbar-thumb:hover,
+.overflow-x-auto::-webkit-scrollbar-thumb:hover,
+.overflow-auto::-webkit-scrollbar-thumb:hover,
+[class*="overflow"]::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.dark main,
+.dark .overflow-y-auto,
+.dark .overflow-x-auto,
+.dark .overflow-auto,
+.dark [class*="overflow"] {
+    scrollbar-color: #475569 #1e293b;
+}
+
+.dark main::-webkit-scrollbar-track,
+.dark .overflow-y-auto::-webkit-scrollbar-track,
+.dark .overflow-x-auto::-webkit-scrollbar-track,
+.dark .overflow-auto::-webkit-scrollbar-track,
+.dark [class*="overflow"]::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+.dark main::-webkit-scrollbar-thumb,
+.dark .overflow-y-auto::-webkit-scrollbar-thumb,
+.dark .overflow-x-auto::-webkit-scrollbar-thumb,
+.dark .overflow-auto::-webkit-scrollbar-thumb,
+.dark [class*="overflow"]::-webkit-scrollbar-thumb {
+    background: #475569;
+    border: 1px solid #1e293b;
+}
+
+.dark main::-webkit-scrollbar-thumb:hover,
+.dark .overflow-y-auto::-webkit-scrollbar-thumb:hover,
+.dark .overflow-x-auto::-webkit-scrollbar-thumb:hover,
+.dark .overflow-auto::-webkit-scrollbar-thumb:hover,
+.dark [class*="overflow"]::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* Scroll animation classes */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Stagger animation delays */
+.fade-in-up.delay-100 {
+    transition-delay: 0.1s;
+}
+
+.fade-in-up.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.fade-in-up.delay-300 {
+    transition-delay: 0.3s;
+}
+
+.fade-in-up.delay-400 {
+    transition-delay: 0.4s;
+}
+
+/* Sidebar collapsed state */
+.sidebar-collapsed #userDropdown {
+    left: 100%;
+    margin-left: 8px;
+    width: 16rem;
+}
+
+/* Ensure dropdown stays visible when sidebar is collapsed */
+.sidebar-collapsed .relative {
+    position: static;
+}
+
+/* Doctor Cards Styling */
+.doctor-card {
+    transition: all 0.3s ease;
+}
+
+.doctor-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Filter Buttons */
+.filter-btn {
+    @apply px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-teal-50 hover:border-teal-300 hover:text-teal-700 transition-all duration-200;
+}
+
+.filter-btn.active {
+    @apply bg-teal-600 text-white border-teal-600;
+}
+
+/* Smooth animations for card elements */
+.doctor-card img {
+    transition: transform 0.5s ease;
+}
+
+.doctor-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .doctor-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    #doctors-grid {
+        gap: 1.5rem;
+    }
+}
+
+/* Ensure consistent card heights */
+.doctor-card .flex-grow {
+    flex: 1 1 auto;
+}
+
+/* Loading animation for cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
