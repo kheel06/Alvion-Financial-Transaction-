@@ -9,10 +9,10 @@
  */
 
 // Ollama API URL. Use http://127.0.0.1:11434 if Ollama is on same server; use http://your-ollama-server-ip:11434 if on another VPS.
-define('OLLAMA_BASE_URL', 'http://localhost:11434');
+define('OLLAMA_BASE_URL', '');
 
 // Model name (e.g. llama3, llama3.2). Run: ollama list
-define('OLLAMA_MODEL', 'llama3');
+define('OLLAMA_MODEL', '');
 
 // Set true when Ollama is running (same server or remote). Set false to hide AI features and avoid connection errors.
 define('OLLAMA_ENABLED', false);
