@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 define('SITE_NAME', 'Alvion');
 define('SITE_SHORT_NAME', 'ALVION');
 define('SITE_VERSION', '1.0.0');
-define('BASE_URL', 'http://localhost/hospital-fin');
+define('BASE_URL', '');
 
 // Session Timeout Enforcement (15 minutes of inactivity)
 // Skip timeout check for logout page to avoid redirect loops
@@ -24,8 +24,8 @@ if (isset($_SESSION['user_id']) && $current_page !== 'logout.php') {
 
 // reCAPTCHA Configuration
 define('RECAPTCHA_ENABLED', true);
-define('RECAPTCHA_SITE_KEY', '6LcBwPQrAAAAAFyq70T-0JYC31_4egSWyI3ijlVf'); // Google Test Site Key
-define('RECAPTCHA_SECRET_KEY', '6LcBwPQrAAAAAJBf746ZZFevjCSRMAEPB8w7JZ53'); // Google Test Secret Key
+define('RECAPTCHA_SITE_KEY', ''); // Google Test Site Key
+define('RECAPTCHA_SECRET_KEY', ''); // Google Test Secret Key
 
 // Financial System Configuration
 define('CURRENT_FISCAL_YEAR', date('Y'));
